@@ -162,6 +162,7 @@ sap.ui.define([
             let RejectReason = RequestModel.oData[0].request_reject_reason;
             console.log("RejectReason : ", RejectReason);
 
+            
 
             var oView = this.getView();
             if(!this.nameDialog){
