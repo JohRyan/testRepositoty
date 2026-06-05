@@ -1,0 +1,50 @@
+[
+  {
+    "name": "GL_ACCOUNT",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : GL계정코드, description : ERP 재무회계 총계정원장(G/L) 고유 계정 코드"
+  },
+  {
+    "name": "NAME",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 계정명, description : 총계정원장(G/L) 계정의 한글 명칭"
+  },
+  {
+    "name": "COMMITMENT_ITEM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 중계정코드, description : 예산 관리 및 통제용 중계정 고유 코드 (Commitment Item)"
+  },
+  {
+    "name": "DESCRIPTION",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 설명, description : 중계정 코드에 대한 한글 명칭 및 세부 설명"
+  },
+  {
+    "name": "BUDGET_CONTROL_YN",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "title : 통제여부, description : 해당 G/L 계정의 예산 항목 조합의 예산 통제 적용 여부 (TRUE/FALSE)"
+  },
+  {
+    "name": "BASE_DATE",
+    "type": "REQUIRED",
+    "description": "title : 기준일자, description : 데이터 적재 및 파티션 기준 일자 (YYYY-MM-DD)"
+  }
+]
+
+Description
+[개요] 
+재무회계의 총계정원장(G/L) 계정과 예산관리의 중계정 항목(Commitment Item) 간의 연계 및 통제 속성을 관리하는 매핑 마스터 테이블입니다.
+
+[주요 데이터]
+- 회계 계정: GL계정코드(GL_ACCOUNT), 계정명(NAME)
+- 예산 연계: 중계정코드(COMMITMENT_ITEM), 중계정설명(DESCRIPTION)
+- 통제 속성: 해당 G/L 계정과 연동된 예산 항목의 예산 통제 적용 여부(BUDGET_CONTROL_YN)
+
+[데이터 관리 특징]
+- BASE_DATE(기준일자) 필드를 기준으로 일별/월별 파티셔닝이 적용되는 마스터 데이터셋입니다.
+- 재무 전표 실적 데이터를 집계할 때 회계 관점(G/L)과 예산 통제 관점(FM)을 상호 매핑하거나, 실적 분석 대시보드에서 예산 집행률을 추적하기 위한 핵심 차원(Dimension) 정보로 활용됩니다.

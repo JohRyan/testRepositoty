@@ -1,0 +1,42 @@
+[
+  {
+    "name": "BIZ_TP_ACCOUNT_CD",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 계정구분코드, description : 사업 유형별 계정 과목 고유 코드"
+  },
+  {
+    "name": "BIZ_TP_ACCOUNT_NM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 계정구분명, description : 사업 유형별 계정 과목의 한글 명칭"
+  },
+  {
+    "name": "TYPE",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 계정타입, description : 계정의 대분류(INTERNAL, EXTERNAL)"
+  },
+  {
+    "name": "SORT_ORDER",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "title : 정렬순서, description : 계정 정보를 UI 화면 출력 또는 리포트 다운로드 시 사용되는 정렬 순서 번호"
+  },
+  {
+    "name": "BASE_DATE",
+    "type": "REQUIRED",
+    "description": "title : 기준일자, description : 데이터 적재 및 파티션 기준 일자 (YYYY-MM-DD)"
+  }
+]
+
+Description
+[개요] 
+계정 과목 및 구분 마스터 정보를 관리하는 테이블입니다.
+
+[주요 데이터]
+- 계정 정보: 계정구분코드, 계정구분명, 계정타입(TYPE)
+- 정렬 및 제어: 화면 매핑이나 리포트 출력을 위한 정렬 순서(SORT_ORDER)
+
+[데이터 관리 특징]
+- BASE_DATE(기준일자) 필드를 기준으로 일별/월별 파티셔닝이 적용되는 마스터 데이터셋입니다.

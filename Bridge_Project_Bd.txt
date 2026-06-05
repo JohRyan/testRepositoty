@@ -1,0 +1,165 @@
+[
+  {
+    "name": "SEQ",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "title: 시퀀스, description: 데이터 적재 일련번호"
+  },
+  {
+    "name": "PRJ_NO",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title: 프로젝트번호, description: 프로젝트 고유 식별 번호"
+  },
+  {
+    "name": "PRJ_NM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title: 프로젝트명, description: 프로젝트 전체 명칭"
+  },
+  {
+    "name": "PRJ_TP_CD",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title: 프로젝트유형코드, description: 프로젝트 내부 분류 유형 코드"
+  },
+  {
+    "name": "PRJ_TP_NM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title: 프로젝트유형명, description: 프로젝트 유형 코드의 한글 명칭"
+  },
+  {
+    "name": "CATEGORY",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title: 프로젝트분류, description: (BAU, DT(AX/SCM))"
+  },
+  {
+    "name": "IF_SOURCE",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title: 인터페이스출처, description: 연동 데이터의 원천 시스템 명"
+  },
+  {
+    "name": "PRJ_PRFM_STR_DT",
+    "type": "DATE",
+    "mode": "NULLABLE",
+    "description": "title: 프로젝트수행시작일자, description: 프로젝트 실제 수행 시작일 (YYYY-MM-DD)"
+  },
+  {
+    "name": "PRJ_PRFM_END_DT",
+    "type": "DATE",
+    "mode": "NULLABLE",
+    "description": "title: 프로젝트수행종료일자, description: 프로젝트 실제 수행 종료일 (YYYY-MM-DD)"
+  },
+  {
+    "name": "CNRC_DT",
+    "type": "DATE",
+    "mode": "NULLABLE",
+    "description": "title: 수주계약일자, description: 영업 수주 및 공식 계약 체결일 (YYYY-MM-DD)"
+  },
+  {
+    "name": "ITSM_DIV_YN",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "title: ITSM구분여부, description: (TRUE/FALSE)"
+  },
+  {
+    "name": "OVSE_BIZ_YN",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "title: 해외사업여부, description: 해외 법인 또는 해외 수행 사업 여부 (TRUE/FALSE)"
+  },
+  {
+    "name": "CROV_DIV_YN",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "title: 이월여부, description: 전년도에서 당해 연도로 이월된 사업 여부 (TRUE/FALSE)"
+  },
+  {
+    "name": "CNVG_BIZ_YN",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "title: 융합사업여부, description: (TRUE/FALSE)"
+  },
+  {
+    "name": "RELSCO_YN",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "title: 관계사여부, description: (TRUE/FALSE)"
+  },
+  {
+    "name": "NON_MM_YN",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "title: Non-MM여부, description: (TRUE/FALSE)"
+  },
+  {
+    "name": "MARGIN_RATE",
+    "type": "NUMERIC",
+    "mode": "NULLABLE",
+    "description": "title: 마진율, description: 프로젝트 예상 또는 확정 마진 비율"
+  },
+  {
+    "name": "IS_LAST",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "title: 전년도 데이터 여부, description: 과거 이력 혹은 스냅샷 기준 전년도 데이터 여부 (TRUE/FALSE)"
+  },
+  {
+    "name": "SRC_TYPE_CD",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title: 데이터소스유형코드, description: 데이터 소스 구분 코드"
+  },
+  {
+    "name": "SRC_TYPE_NM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title: 데이터소스유형명, description: 데이터 소스 구분의 한글 명칭"
+  },
+  {
+    "name": "DESCRIPTION",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title: 설명, description: 프로젝트 세부 비고 및 특이사항 텍스트"
+  },
+  {
+    "name": "BD_CD",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title: 도메인코드, description: 관리 조직 또는 비즈니스 도메인(BD) 코드"
+  },
+  {
+    "name": "BD_NM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title: 도메인명, description: 비즈니스 도메인(BD)의 한글 조직명"
+  },
+  {
+    "name": "BD_LEVEL",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "title: 도메인레벨, description: 도메인 조직 계층의 깊이 레벨 (예: 1, 2, 3)"
+  },
+  {
+    "name": "BASE_DATE",
+    "type": "DATE",
+    "mode": "REQUIRED",
+    "description": "title: 기준일자, description: 데이터 적재 및 파티션 기준 일자 (YYYY-MM-DD)"
+  }
+]
+
+Description
+[개요] 
+인터페이스를 통해 수집된 프로젝트 마스터 정보 및 계약 메타데이터를 관리하는 테이블입니다.
+
+[주요 데이터]
+- 프로젝트 기본 정보: 프로젝트 번호, 명칭, 유형(코드/명), 수행 기간, 계약일
+- 비즈니스 속성 속성: 해외사업 여부, 이월 여부, 관계사 여부, Non-MM 여부, 마진율
+- 조직 및 출처: 데이터 소스 유형, 도메인(BD) 코드/명 및 레벨(계층 구조)
+
+[데이터 관리 특징]
+- BASE_DATE(기준일자) 필드를 기준으로 일별/월별 파티셔닝이 적용되는 테이블입니다.
+- 역사적 데이터 비교 및 프로젝트 마스터 현황 분석, 챗봇/LLM 연동을 위한 원천 데이터셋으로 활용됩니다.

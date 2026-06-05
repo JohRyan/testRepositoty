@@ -1,0 +1,106 @@
+[
+  {
+    "name": "BIZ_OPP_NO_SFDC",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : SFDC사업기회번호, description : Salesforce(SFDC) 시스템의 고유 사업 기회 ID"
+  },
+  {
+    "name": "BIZ_OPP_NO",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 사업기회번호, description : 내부 관리용으로 매핑된 사업 기회 번호"
+  },
+  {
+    "name": "BIZ_OPP_NM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 사업기회명, description : 진행 중인 딜(Deal) 또는 사업 기회의 명칭"
+  },
+  {
+    "name": "DEAL_STAGE_CHANGE_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE",
+    "description": "title : 거래단계변경일, description : 현재 영업 파이프라인 단계로 변경된 최종 일자 (YYYY-MM-DD)"
+  },
+  {
+    "name": "EXPECTED_CONTRACT_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE",
+    "description": "title : 예상계약일, description : 수주 및 공식 계약 체결이 예상되는 목표 일자 (YYYY-MM-DD)"
+  },
+  {
+    "name": "PRJ_PRFM_STR_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE",
+    "description": "title : 사업수행 시작일자, description : 계약 성공 시 실제 프로젝트 수행이 시작될 것으로 예상되는 일자 (YYYY-MM-DD)"
+  },
+  {
+    "name": "PRJ_PRFM_END_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE",
+    "description": "title : 사업수행 종료일자, description : 계약 성공 시 프로젝트 수행이 종료될 것으로 예상되는 일자 (YYYY-MM-DD)"
+  },
+  {
+    "name": "IS_LAST",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "title : 전년도 데이터 여부, description : 과거 이력 혹은 스냅샷 기준 전년도 데이터 여부 (TRUE/FALSE)"
+  },
+  {
+    "name": "DEAL_STAGE_CD",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 거래단계코드, description : 영업 진척 단계 구분 코드 (Lead, Qualified, Validated 등)"
+  },
+  {
+    "name": "DEAL_STAGE_NM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 거래단계명, description : 영업 진척 단계의 한글 명칭"
+  },
+  {
+    "name": "STAGE_ORDER",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "title : 스테이지순서, description : 세일즈 파이프라인 프로세스 흐름에 따른 표준 진행 순서"
+  },
+  {
+    "name": "CLS_RSN_TP_CD",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 사업기회종료사유코드, description : 딜이 최종 실패된 원인 분류 코드"
+  },
+  {
+    "name": "CLS_RSN_TP_NM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 사업기회종료사유명, description : 딜 최종 종료 원인의 한글 명칭 (예: 경쟁사 낙찰, 예산 부족 등)"
+  },
+  {
+    "name": "SORT_ORDER",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "title : 정렬순서, description : 딜이 최종 실패된 원인 분류 정렬 순서"
+  },
+  {
+    "name": "BASE_DATE",
+    "type": "REQUIRED",
+    "description": "title : 기준일자, description : 데이터 적재 및 파티션 기준 일자 (YYYY-MM-DD)"
+  }
+]
+
+Description 
+[개요] 
+Salesforce(SFDC) 및 내부 영업 시스템에서 연동된 사업 기회(Opportunity) 및 영업 파이프라인 데이터를 관리하는 테이블입니다.
+
+[주요 데이터]
+- 식별자: SFDC사업기회번호, 내부사업기회번호, 사업기회명
+- 영업 단계 및 일정: 거래단계(코드/명/순서), 거래단계변경일, 예상계약일, 사업수행예정기간(시작/종료일)
+- 종료 사유: 수주 실패 또는 종료 시 발생하는 종료사유(코드/명)
+- 제어 필드: 정렬 순서, 전년도 데이터 여부(IS_LAST)
+
+[데이터 관리 특징]
+- BASE_DATE(기준일자) 필드를 기준으로 일별/월별 파티셔닝이 적용되는 테이블입니다.
+- 영업 파이프라인 진척도 분석, 수주 예측(Forecasting), 전환율 및 Loss 사유 분석을 위한 분석용 원천 데이터셋으로 활용됩니다.
+

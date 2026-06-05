@@ -1,0 +1,37 @@
+[
+  {
+    "name": "COMMITMENT_ITEM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 중계정코드, description : 예산 관리 및 통제용 중계정 고유 코드 (Commitment Item)"
+  },
+  {
+    "name": "DESCRIPTION",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 설명, description : 중계정 코드에 대한 한글 명칭 및 세부 설명"
+  },
+  {
+    "name": "BUDGET_CONTROL_YN",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "title : 통제여부, description : 해당 중계정 항목의 예산 통제 적용 여부 (TRUE/FALSE)"
+  },
+  {
+    "name": "BASE_DATE",
+    "type": "REQUIRED",
+    "description": "title : 기준일자, description : 데이터 적재 및 파티션 기준 일자 (YYYY-MM-DD)"
+  }
+]
+
+Description 
+[개요] 
+예산 관리 및 통제의 기준이 되는 중계정 항목(Commitment Item) 마스터 정보를 관리하는 테이블입니다.
+
+[주요 데이터]
+- 예산 항목 정보: 중계정코드(COMMITMENT_ITEM), 중계정명/설명(DESCRIPTION)
+- 통제 속성: 해당 예산 항목이 통제 대상인지 여부를 나타내는 통제여부(BUDGET_CONTROL_YN)
+
+[데이터 관리 특징]
+- BASE_DATE(기준일자) 필드를 기준으로 일별/월별 파티셔닝이 적용되는 마스터 데이터셋입니다.
+- 프로젝트별 예산 집행, 실적 대비 통제 현황을 분석하거나 재무 리포트를 생성할 때 비용/예산 통제 차원(Dimension)의 기준 정보로 활용됩니다.

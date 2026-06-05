@@ -1,0 +1,37 @@
+[
+  {
+    "name": "DEAL_STAGE_CD",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 거래단계코드, description : 영업 진척 단계(Deal Stage) 고유 구분 코드"
+  },
+  {
+    "name": "DEAL_STAGE_NM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 거래단계명, description : 영업 진척 단계의 한글 명칭"
+  },
+  {
+    "name": "STAGE_ORDER",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "title : 스테이지순서, description : 세일즈 파이프라인 프로세스 흐름에 따른 표준 진행 순서"
+  },
+  {
+    "name": "BASE_DATE",
+    "type": "REQUIRED",
+    "description": "title : 기준일자, description : 데이터 적재 및 파티션 기준 일자 (YYYY-MM-DD)"
+  }
+]
+
+Descripition 
+[개요] 
+SFDC 및 영업 관리 시스템에서 사용되는 영업 파이프라인 거래 단계(Deal Stage)의 마스터 정보를 관리하는 기준 테이블입니다.
+
+[주요 데이터]
+- 거래 단계 정보: 거래단계코드, 거래단계명 (예: 신규등록, 입찰예정, 기회검증 등)
+- 파이프라인 순서: 세일즈 프로세스의 선후 관계 및 진행 흐름을 제어하기 위한 스테이지순서(STAGE_ORDER)
+
+[데이터 관리 특징]
+- BASE_DATE(기준일자) 필드를 기준으로 일별/월별 파티셔닝이 적용되는 마스터 데이터셋입니다.
+- 사업기회(Opportunity) 테이블과 조인하여 현재 영업 진척도 현황을 시각화하거나, 단계별 리드 타임(Lead Time) 및 파이프라인 전환율(Conversion Rate)을 분석할 때 기준 차원(Dimension) 정보로 활용됩니다.

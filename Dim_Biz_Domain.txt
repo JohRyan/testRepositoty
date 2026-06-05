@@ -1,0 +1,37 @@
+[
+  {
+    "name": "BD_CD",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 도메인코드, description : 비즈니스 도메인(BD) 고유 코드"
+  },
+  {
+    "name": "BD_NM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 도메인명, description : 비즈니스 도메인(BD)의 한글 조직 명칭"
+  },
+  {
+    "name": "BD_LEVEL",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "title : 도메인레벨, description : 비즈니스 도메인(BD) 깊이 레벨 (예: 1, 2, 3)"
+  },
+  {
+    "name": "BASE_DATE",
+    "type": "REQUIRED",
+    "description": "title : 기준일자, description : 데이터 적재 및 파티션 기준 일자 (YYYY-MM-DD)"
+  }
+]
+
+Description
+[개요] 
+비즈니스 영역을 정의하는 도메인(BD) 마스터 정보를 관리하는 테이블입니다.
+
+[주요 데이터]
+- 도메인 정보: 도메인코드, 도메인명
+- 계층 구조: 조직의 깊이를 나타내는 도메인레벨(BD_LEVEL)
+
+[데이터 관리 특징]
+- BASE_DATE(기준일자) 필드를 기준으로 일별/월별 파티셔닝이 적용되는 마스터 데이터셋입니다.
+- 프로젝트나 실적 데이터를 도메인별 집계(Aggregation)하거나 분석을 할 때 기준 차원(Dimension) 테이블로 활용됩니다.

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "CLS_RSN_TP_CD",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 사업기회종료사유코드, description : 사업기회 종료(실패/취소 등) 원인 고유 분류 코드"
+  },
+  {
+    "name": "CLS_RSN_TP_NM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 사업기회종료사유명, description : 사업기회 최종 종료 원인의 한글 명칭"
+  },
+  {
+    "name": "SORT_ORDER",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "title : 정렬순서, description : 사업기회종료사유 정보를 UI 화면 출력 또는 리포트 다운로드 시 사용되는 정렬 순서 번호"
+  },
+  {
+    "name": "BASE_DATE",
+    "type": "REQUIRED",
+    "description": "title : 기준일자, description : 데이터 적재 및 파티션 기준 일자 (YYYY-MM-DD)"
+  }
+]
+
+Description 
+[개요] 
+SFDC 및 영업 시스템에서 사용되는 사업기회 종료 사유(Close Reason)의 마스터 정보를 관리하는 기준 테이블입니다.
+
+[주요 데이터]
+- 종료 사유 정보: 사업기회종료사유코드, 사업기회종료사유명 (예: 가격 경쟁력 취약, 제안 미흡, 고객 예산 취소 등)
+- 제어 필드: UI 화면 조회 또는 리포트 매핑 시 사용되는 표준 정렬 순서(SORT_ORDER)
+
+[데이터 관리 특징]
+- BASE_DATE(기준일자) 필드를 기준으로 일별/월별 파티셔닝이 적용되는 마스터 데이터셋입니다.
+- 사업기회(Opportunity) 테이블의 CLS_RSN_TP_CD 필드와 조인(Join)하여 수주 실패(Loss) 원인 분석 리포트나 통계 대시보드를 구성할 때 기준 차원(Dimension) 정보로 활용됩니다.

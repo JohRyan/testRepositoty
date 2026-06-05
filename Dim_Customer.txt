@@ -1,0 +1,85 @@
+[
+  {
+    "name": "CSTCO_CD",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 고객사코드, description : 고객사 고유 식별 코드"
+  },
+  {
+    "name": "CSTCO_NM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 고객사명, description : 고객사의 공식 한글 명칭"
+  },
+  {
+    "name": "COUNTRY",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 국가코드, description : 고객사가 소속된 국가 코드 (예: KR, US 등)"
+  },
+  {
+    "name": "RELSCO_YN",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "title : 관계사여부, description : 캡티브 내부 관계사 또는 계열사 여부 (TRUE/FALSE)"
+  },
+  {
+    "name": "BIZ_TYPE",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 업종구분, description : 고객사의 주력 산업군 또는 업종 분류"
+  },
+  {
+    "name": "ERP_PBL_DIV_RCID",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : ERP공공구분, description : ERP 시스템 기준 공공기관/민간기업 구분 코드"
+  },
+  {
+    "name": "USE_YN",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "title : 사용여부, description : 해당 마스터 데이터의 활성화 및 사용 여부 (TRUE/FALSE)"
+  },  
+  {
+    "name": "BIZ_TP_ACCOUNT_CD",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 계정구분코드, description : 사업 유형별 계정 과목 고유 코드"
+  },
+  {
+    "name": "BIZ_TP_ACCOUNT_NM",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 계정구분명, description : 사업 유형별 계정 과목의 한글 명칭"
+  },
+  {
+    "name": "TYPE",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "title : 계정타입, description : 계정의 대분류(INTERNAL, EXTERNAL)"
+  },
+  {
+    "name": "SORT_ORDER",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "title : 정렬순서, description : 계정 정보를 UI 화면 출력 또는 리포트 다운로드 시 사용되는 정렬 순서 번호"
+  },
+  {
+    "name": "BASE_DATE",
+    "type": "REQUIRED",
+    "description": "title : 기준일자, description : 데이터 적재 및 파티션 기준 일자 (YYYY-MM-DD)"
+  }
+]
+
+Description 
+[개요] 
+고객사별 속성(국가, 관계사 여부, 업종 등)과 사업 유형별 계정 구분 마스터 정보를 연계하여 관리하는 매핑 테이블입니다.
+
+[주요 데이터]
+- 고객사 정보: 고객사코드/명, 국가코드, 관계사여부, 업종구분, ERP공공구분(공공/민간 등), 사용여부
+- 계정 정보: 계정구분코드/명, 계정타입(TYPE), 정렬순서(SORT_ORDER)
+
+[데이터 관리 특징]
+- BASE_DATE(기준일자) 필드를 기준으로 일별/월별 파티셔닝이 적용되는 마스터 데이터셋입니다.
+- 특정 고객사나 업종별로 매출/비용 계정을 다르게 매핑하여 손익을 다각도로 시뮬레이션하거나, ERP 전표 연동 및 대시보드 정산용 기준 정보로 활용됩니다.
